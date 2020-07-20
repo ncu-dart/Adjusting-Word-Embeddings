@@ -3,7 +3,7 @@
 # Introduction
 A post-training and listwise method for adjusting word embeddings with synonyms and antonyms based on undirected list encoder generated from self-ettention.
 
-Paper Links: [https://www.overleaf.com/read/tnxqtgkzdhqq](https://www.overleaf.com/read/tnxqtgkzdhqq)
+Paper Links: [https://drive.google.com/file/d/1UO6FVOwuAenNfWnkFrylgzHQe-9WQkff/view](https://drive.google.com/file/d/1UO6FVOwuAenNfWnkFrylgzHQe-9WQkff/view)
 
 # Quickstart
 
