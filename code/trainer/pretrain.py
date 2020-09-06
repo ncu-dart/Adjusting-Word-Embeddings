@@ -103,7 +103,7 @@ class BERTTrainer:
             label = data["syn_label"].type(torch.FloatTensor).cuda()
             
             loss_1 = (torch.mul(((bert_output-original_emb)**2).mean(dim=2), torch.abs(label)).sum(dim=1)/torch.abs(label).sum(dim=1)).mean()
-            loss_2 = (torch.mul(cos(bert_output, key), label).sum(dim=1)/torch.abs(label).sum(dim=1)).mean()
+            loss_2 = ((torch.sub(target,torch.mul(cos(bert_output, key), label))).sum(dim=1)/torch.abs(label).sum(dim=1)).mean()
             
             loss = 0.7 * loss_1 + 0.3 * loss_2
 
