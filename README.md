@@ -5,6 +5,21 @@ A post-training and listwise method for adjusting word embeddings with synonyms 
 
 Paper Links: [https://drive.google.com/file/d/1UO6FVOwuAenNfWnkFrylgzHQe-9WQkff/view](https://drive.google.com/file/d/1UO6FVOwuAenNfWnkFrylgzHQe-9WQkff/view)
 
+# Nitty-gritty Before Starting
+
+## Encoding of Data
+
+- Please make sure the .txt files of embeddings and lexicons that you're introducing to the model are encoded in UTF-8. 
+- Performance may drop significantly if .txt files are not uniformly encoded. This is an empirical conclusion.
+- Simply way to make a UTF-8 encoding txt file (on a Windows computer):
+  - Open the target txt file (that you're not sure if UTF-8 encoded) in Windows Wordpad.
+  - Press File -> Save As -> choose "UTF-8" at the Encoding box -> Save
+
+## Loss Function in Pretrain.py
+
+- To reproduce the experiment results stated in the above paper, please 
+
+
 # Quickstart
 
 ## main<span></span>.py
@@ -28,6 +43,7 @@ $python main.py -ep ../data/embeddings/GloVe/glove.6B.300d.txt
 ```
 
 ## evaluation<span></span>.py
+* Will evaluate the lastly trained model and generate a .txt file for the adjusted embedding at ```<filepath for saving embeddings>```.
 * Compare the performance of word embeddings on word similarity tasks before and after adjusting.  
 * Process the raw output to GloVe format.
 
