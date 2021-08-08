@@ -5,7 +5,7 @@ A post-training and listwise method for adjusting word embeddings with synonyms 
 
 Paper Links: [https://drive.google.com/file/d/1UO6FVOwuAenNfWnkFrylgzHQe-9WQkff/view](https://drive.google.com/file/d/1UO6FVOwuAenNfWnkFrylgzHQe-9WQkff/view)
 
-# Nitty-gritty Before Starting
+# Nitty-gritty to Know Before Starting
 
 ## Encoding of Data
 
@@ -15,9 +15,14 @@ Paper Links: [https://drive.google.com/file/d/1UO6FVOwuAenNfWnkFrylgzHQe-9WQkff/
   - Open the target txt file (that you're not sure if UTF-8 encoded) in Windows Wordpad.
   - Press File -> Save As -> choose "UTF-8" at the Encoding box -> Save
 
-## Loss Function in Pretrain.py
+## Loss Function
 
-- To reproduce the experiment results stated in the above paper, please 
+- The loss funtions locate in ```./code/trainer/pretrain.py```.
+- The proposed loss function in the paper will not lead to the experiment results in the paper. The corresponding python code of this code 
+  is commented in the .py file.
+  - The proposed loss function is 
+- To reproduce the experiment results stated in the paper, please ......
+
 
 
 # Quickstart
