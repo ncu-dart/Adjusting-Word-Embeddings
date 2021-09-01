@@ -10,18 +10,18 @@ Paper Links: [https://drive.google.com/file/d/1UO6FVOwuAenNfWnkFrylgzHQe-9WQkff/
 ## Encoding of Data
 
 - Please make sure the .txt files of embeddings and lexicons that you're introducing to the model are encoded in UTF-8. 
-- Performance may drop significantly if .txt files are not uniformly encoded. This is an empirical conclusion.
-- Simply way to make a UTF-8 encoding txt file (on a Windows computer):
+- Performance may drop significantly if .txt files are not uniformly encoded (for this paper and also related works). This is an empirical conclusion.
+- A simple way to make a UTF-8 encoding txt file (on a Windows computer):
   - Open the target txt file (that you're not sure if UTF-8 encoded) in Windows Wordpad.
   - Press File -> Save As -> choose "UTF-8" at the Encoding box -> Save
 
 ## Loss Function
 
-- The loss funtions locate in ```./code/trainer/pretrain.py```.
-- The proposed loss function in the paper will not lead to the experiment results in the paper. The corresponding python code of this code 
-  is commented in the .py file.
-  - The proposed loss function is 
-- To reproduce the experiment results stated in the paper, please ......
+- The loss funtions are located in ```./code/trainer/pretrain.py```.
+- The proposed loss function in the paper **will not** lead to the experiment results in the paper, and the python code of this loss function 
+  is commented out in ```pretrain.py``` file at ```line 114```.
+  - The actual loss function that produce the result proposed in the paper is at ```line 117```.
+  - Experiment result will drop significantly if we use the loss function located at ```line 114``` instead of the one at ```line 117```
 
 
 
