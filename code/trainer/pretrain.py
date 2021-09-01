@@ -102,9 +102,21 @@ class BERTTrainer:
             key = bert_output[:,0,:].unsqueeze(1).repeat(1, self.seq_len, 1)
             label = data["syn_label"].type(torch.FloatTensor).cuda()
             
-            loss_1 = (torch.mul(((bert_output-original_emb)**2).mean(dim=2), torch.abs(label)).sum(dim=1)/torch.abs(label).sum(dim=1)).mean()
-            loss_2 = ((torch.sub(target,torch.mul(cos(bert_output, key), label))).sum(dim=1)/torch.abs(label).sum(dim=1)).mean()
+            target = label
+            for idx1, tar in enumerate(target):
+                for idx2, t in enumerate(tar):
+                    if t == -1:                
+                        tar[idx2] = 0          
             
+            loss_1 = (torch.mul(((bert_output-original_emb)**2).mean(dim=2), torch.abs(label)).sum(dim=1)/torch.abs(label).sum(dim=1)).mean()
+            
+            # The loss function "l1" that was proposed in the paper (but doesn't lead to the stated experiment result/performance):
+            # loss_2 = ((torch.sub(target,torch.mul(cos(bert_output, key), label))).sum(dim=1)/torch.abs(label).sum(dim=1)).mean()
+            
+            # The loss function that actually yields the experiment result and performance stated in the paper:
+            loss_2 = (torch.mul(cos(bert_output, key), label).sum(dim=1)/torch.abs(label).sum(dim=1)).mean()
+            
+            # default alpha = 0.3
             loss = 0.7 * loss_1 + 0.3 * loss_2
 
             # 3. backward and optimization only in train
